@@ -2,11 +2,6 @@ import subprocess
 import re
 import sys
 
-try:
-    import simplejson as json
-except ImportError:
-    import json
-
 class Ping:
     """A class that will get the response from the ping call"""
 

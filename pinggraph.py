@@ -1,7 +1,7 @@
 import os
 import subprocess
 import re
-import numpy as mp
+import numpy as np
 import matplotlib.pyplot as plt
 from ping import Ping
 
@@ -15,4 +15,10 @@ ax = plt.subplot()  # Create an Axes object for the figure
 ax.set_xlabel('wrgg')  # Set the label for the x-axis
 ax.set_ylabel('yummmm')  # Set the label for the y-axis
 
+pingarray = []
+for x in range(100):
+    pingresponse = ping.call(1)
+    pingarray.append(pingresponse)
+
+plt.plot(pingarray)
 plt.show()

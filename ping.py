@@ -1,5 +1,6 @@
 import subprocess
 import re
+import sys
 
 try:
     import simplejson as json
@@ -12,14 +13,19 @@ class Ping:
     def __init__(self):
         response = 0
 
-    def call(self):
+    def call(self, ostype):
         """
         The function that gets the response itself
         """
         pingvalue = 0
-
+        
         # Gathering ping data
-        command = "ping -n 1 google.com"
+        # If ostype is 0, then it's the Windows version of the command
+        # If ostype is 1, then it uses the Ubuntu command
+        if ostype == 0:
+            command = "ping -n 1 google.com"
+        else:
+            command = "ping -c 1 google.com"
 
         """
         This try-except block catches when the ping call doesn't give a response (the connection drops)
@@ -46,14 +52,15 @@ class Ping:
                 I'm sure there's a better way to do it though
                 """
                 pingline = re.split(r'time=|ms', line)
-                pingvalue = int(pingline[1])
-                # json.dump(pingline[1])
+                pingvalue = float(pingline[1])
+                
         return pingvalue
 
 def main():
     ping = Ping()
+    ostype = int(sys.argv[1])
     while True:
-        print(ping.call())
+        print (ping.call(ostype))
 
 if __name__ == '__main__':
     main()

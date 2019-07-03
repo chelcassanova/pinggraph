@@ -16,7 +16,7 @@ class Ping:
         
         # Gathering ping data
         # If ostype is 0, then it's the Windows version of the command
-        # If ostype is 1, then it uses the Ubuntu command
+        # If ostype is 1, then it uses the Bash command
         if ostype == 0:
             command = "ping -n 1 google.com"
         else:

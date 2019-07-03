@@ -55,7 +55,7 @@ def main():
     ping = Ping()
     ostype = int(sys.argv[1])
     while True:
-        print (ping.call(ostype))
+        print(ping.call(ostype))
 
 if __name__ == '__main__':
     main()

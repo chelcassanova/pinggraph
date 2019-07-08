@@ -18,8 +18,8 @@ pingarray = []
 
 # PROBLEM: Cross-platform program only works on Windows
 # TODO: Get graph to be one colour
-def animate(i, ostype):  # I don't know why, but the func def needs an argument
-    pingresponse = ping.call(ostype)  # Get the response time of the ping call
+def animate(i, ostype, server):  # I don't know why, but the func def needs an argument
+    pingresponse = ping.call(ostype, server)  # Get the response time of the ping call
     pingarray.append(pingresponse)  # Add that response time to a list of responses for plotting
 
     if pingresponse == 0:
@@ -40,6 +40,7 @@ def animate(i, ostype):  # I don't know why, but the func def needs an argument
 
     # Update the y-axis label with the current ping value
     ax.set_ylabel(str.format('Response Time (ms): {}', pingresponse))
+    fig.suptitle(str.format('Pinging {}', server))
 
 
 def main():
@@ -49,8 +50,10 @@ def main():
     else:
         osint = 1
 
-    # All it took was putting a comma after 'osint' in fargs
-    ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint,), interval=200)
+    # All it took was putting a comma after 'osint' in fargs >:(
+    # TODO: Make the "what server do you want to ping" a GUI thing
+    pingserver = input("what is want ")
+    ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=200)
     plt.show()
 
 

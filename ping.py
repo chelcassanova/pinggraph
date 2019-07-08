@@ -8,7 +8,7 @@ class Ping:
     def __init__(self):
         response = 0
 
-    def call(self, ostype, server):
+    def call(self, ostype, server="google.com"):
         """
         The function that gets the response itself
         """
@@ -17,11 +17,11 @@ class Ping:
         # Gathering ping data
         # If ostype is 0, then it's the Windows version of the command
         # If ostype is 1, then it uses the Bash command
-        # TODO: Find a way to get the user to request which server to ping (default is google.com)
+        # DONE: Find a way to get the user to request which server to ping (default is google.com)
         if ostype == 0:
-            command = "ping -n 1 google.com"
+            command = str.format("ping -n 1 {}", server)
         else:
-            command = "ping -c 1 google.com"
+            command = str.format("ping -c 1 {}", server)
 
         """
         This try-except block catches when the ping call doesn't give a response (the connection drops)

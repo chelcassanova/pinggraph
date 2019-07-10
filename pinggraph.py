@@ -12,7 +12,6 @@ fig.suptitle('Ping Response Graph')  # Give it a main title
 ax = plt.subplot()  # Create an Axes object for the figure
 ax.set_xlabel('Time?')  # Set the label for the x-axis
 ax.set_ylabel('Response Time (ms)')  # Set the label for the y-axis
-# plt.ion()
 
 pingarray = []
 

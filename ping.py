@@ -35,7 +35,6 @@ class Ping:
 
         pinglist = pingresponse.split(b'\n')
 
-
         for line in pinglist:
             line = line.decode("utf-8")  # Decode the byte strings into normal unicode lines
 

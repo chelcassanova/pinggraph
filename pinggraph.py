@@ -1,23 +1,21 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import sys
-# import tkinter
+import tkinter
 from ping import Ping
 
-ping = Ping()
+
+ping = Ping()  # Create a new ping object
 
 fig = plt.figure()  # Create the main figure of the graph
-# fig.suptitle('Ping Response Graph')  # Give it a main title
-
-
 ax = plt.subplot()  # Create an Axes object for the figure
 ax.set_xlabel('Time?')  # Set the label for the x-axis
 ax.set_ylabel('Response Time (ms)')  # Set the label for the y-axis
 
-pingarray = []
+pingarray = []  # Create a list that will be used to hold thr ping response times
 
 
-def animate(i, ostype, server):  # I don't know why, but the func def needs an argument
+def animate(i, ostype, server):  # NOTE: I don't know why, but the func def needs an argument
     pingresponse = ping.call(ostype, server)  # Get the response time of the ping call
     pingarray.append(pingresponse)  # Add that response time to a list of responses for plotting
 
@@ -42,7 +40,16 @@ def animate(i, ostype, server):  # I don't know why, but the func def needs an a
     ax.set_ylabel(str.format('Response Time (ms): {}', pingresponse))
     fig.suptitle(str.format('Pinging {}', server))
 
+def serverwindow():
+    window = tkinter.Tk()
+    window.geometry("400x150")
+    messagelabel = tkinter.Label(window, text="Please enter the server you want to ping")
+    messagelabel.pack()
 
+    serverentry = tkinter.Entry(window, text="pls")
+    serverentry.pack()
+    serverentry.insert(0, "google.com")
+    window.mainloop()
 def main():
     # If this is being run on Windows, set the "os type" to 0, otherwise, set it to 1
     if sys.platform == "win32":
@@ -52,8 +59,8 @@ def main():
 
     # All it took was putting a comma after 'osint' in fargs >:(
     # TODO: Make the "what server do you want to ping" a GUI thing
-    # TODO: Make "google.com" truly the default server to ping, also make branch to do this
-    pingserver = input("what is want")
+    pingserver = ""
+    serverwindow()
     ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=200)
     plt.show()
 

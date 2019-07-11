@@ -6,7 +6,7 @@ from ping import Ping
 ping = Ping()
 
 fig = plt.figure()  # Create the main figure of the graph
-fig.suptitle('Ping Response Graph')  # Give it a main title
+# fig.suptitle('Ping Response Graph')  # Give it a main title
 
 
 ax = plt.subplot()  # Create an Axes object for the figure

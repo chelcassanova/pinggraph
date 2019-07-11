@@ -40,16 +40,21 @@ def animate(i, ostype, server):  # NOTE: I don't know why, but the func def need
     ax.set_ylabel(str.format('Response Time (ms): {}', pingresponse))
     fig.suptitle(str.format('Pinging {}', server))
 
+
 def serverwindow():
     window = tkinter.Tk()
     window.geometry("400x150")
     messagelabel = tkinter.Label(window, text="Please enter the server you want to ping")
     messagelabel.pack()
 
+    entrystring = "google.com"
     serverentry = tkinter.Entry(window, text="pls")
     serverentry.pack()
-    serverentry.insert(0, "google.com")
+    serverentry.insert(0, entrystring)
+
     window.mainloop()
+
+
 def main():
     # If this is being run on Windows, set the "os type" to 0, otherwise, set it to 1
     if sys.platform == "win32":

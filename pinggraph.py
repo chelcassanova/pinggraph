@@ -51,7 +51,12 @@ def main():
 
     # All it took was putting a comma after 'osint' in fargs >:(
     # TODO: Make the "what server do you want to ping" a GUI thing
+
+    # If no server is given, google.com is assumed to be the default server
+    # I hate everything about this "fix"
     pingserver = input("what is want")
+    if pingserver == "":
+        pingserver = "google.com"
     ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=200)
     plt.show()
 

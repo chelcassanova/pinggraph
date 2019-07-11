@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import sys
+# import tkinter
 from ping import Ping
 
 ping = Ping()
@@ -51,6 +52,7 @@ def main():
 
     # All it took was putting a comma after 'osint' in fargs >:(
     # TODO: Make the "what server do you want to ping" a GUI thing
+    # TODO: Make "google.com" truly the default server to ping, also make branch to do this
     pingserver = input("what is want")
     ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=200)
     plt.show()

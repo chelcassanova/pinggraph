@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import sys
+import tkinter
 from ping import Ping
 
 ping = Ping()
@@ -57,6 +58,8 @@ def main():
     pingserver = input("what is want")
     if pingserver == "":
         pingserver = "google.com"
+
+    # THe function that animates the graph
     ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=200)
     plt.show()
 

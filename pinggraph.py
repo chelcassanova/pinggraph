@@ -42,6 +42,10 @@ def animate(i, ostype, server):  # NOTE: I don't know why, but the func def need
 
 
 def serverwindow():
+    """
+    A graphical window that can be used to enter the server to ping instead of using the command line
+    :return: The server that the user want to ping
+    """
     window = tkinter.Tk()
     window.geometry("400x150")
     messagelabel = tkinter.Label(window, text="Please enter the server you want to ping")
@@ -52,6 +56,11 @@ def serverwindow():
     serverentry.pack()
     serverentry.insert(0, entrystring)
 
+    """
+    PROBLEM: This might not be possible because of the way I set it up (putting it inside a function)
+    and the fact that Tkinter is event driven (callback functions shouldn't return anything)
+    """
+    # window.bind("<Return>", returnserver)
     window.mainloop()
 
 
@@ -64,7 +73,7 @@ def main():
 
     # All it took was putting a comma after 'osint' in fargs >:(
     # TODO: Make the "what server do you want to ping" a GUI thing
-    pingserver = ""
+    pingserver = "google.com"
     serverwindow()
     ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=200)
     plt.show()

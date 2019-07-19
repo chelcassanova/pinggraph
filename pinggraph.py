@@ -12,7 +12,7 @@ ax = plt.subplot()  # Create an Axes object for the figure
 ax.set_xlabel('Time?')  # Set the label for the x-axis
 ax.set_ylabel('Response Time (ms)')  # Set the label for the y-axis
 
-pingarray = []  # Create a list that will be used to hold thr ping response times
+pingarray = []  # Create a list that will be used to hold the ping response times
 
 
 def animate(i, ostype, server):  # NOTE: I don't know why, but the func def needs an argument
@@ -47,7 +47,7 @@ def serverwindow():
     :return: The server that the user want to ping
     """
     window = tkinter.Tk()
-    window.geometry("400x150")
+    window.geometry("300x150")
     messagelabel = tkinter.Label(window, text="Please enter the server you want to ping")
     messagelabel.pack()
 

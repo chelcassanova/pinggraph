@@ -9,4 +9,6 @@ into this:
 
 
 [pingterm]: images/pingterm.png "The ping command running in Windows Powershell"
+
+
 [pinggraph]: images/pinggraph.png "The Ping Graph program running"

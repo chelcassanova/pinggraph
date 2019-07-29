@@ -3,12 +3,9 @@ This is a program that calls the terminal-based ping command, gets the ms value 
 Basically, it turns this:
 
 ![alt text][pingterm]
-into this:
 
-![alt text] [pinggraph]
+![alt text][pinggraph]
 
 
 [pingterm]: images/pingterm.png "The ping command running in Windows Powershell"
-
-
 [pinggraph]: images/pinggraph.png "The Ping Graph program running"

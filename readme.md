@@ -5,7 +5,7 @@ Basically, it turns this:
 ![alt text][pingterm]
 into this:
 
-![alt text] [pinggraph]
+![alt text][pinggraph]
 
 
 [pingterm]: images/pingterm.png "The ping command running in Windows Powershell"

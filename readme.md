@@ -1,5 +1,10 @@
 This is a program that calls the terminal-based ping command, gets the ms value of the ping, and converts the value into a graph.
 
-![alt-text][pingterm]
+Basically, it does this:
 
-[pingterm]: images/pingterm.png
+![alt text][pingterm]
+![alt text] [pinggraph]
+
+
+[pingterm]: images/pingterm.png "The ping command running in Windows Powershell"
+[pinggraph]: images/pinggraph.png "The Ping Graph program running"

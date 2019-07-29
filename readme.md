@@ -4,6 +4,8 @@ Basically, it turns this:
 
 ![alt text][pingterm]
 
+into this:
+
 ![alt text][pinggraph]
 
 

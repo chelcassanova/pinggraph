@@ -55,6 +55,9 @@ def serverwindow():
     serverentry = tkinter.Entry(window, text="pls")
     serverentry.pack()
     serverentry.insert(0, entrystring)
+ 
+    boton = tkinter.Button(window, text="does nothing")
+    boton.pack()
 
     """
     PROBLEM: This might not be possible because of the way I set it up (putting it inside a function)

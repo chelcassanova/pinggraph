@@ -57,6 +57,7 @@ def main():
     while True:
         print(ping.call(ostype))
 
+
 if __name__ == '__main__':
     main()
 

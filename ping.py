@@ -10,7 +10,7 @@ class Ping:
 
     def call(self, ostype, server="google.com"):
         """
-        The function that gets the response itself
+        A function that makes a call to the system's 'ping' command and returns the numerical response time
         """
         pingvalue = 0
         
@@ -23,16 +23,17 @@ class Ping:
         else:
             command = str.format("ping -c 1 {}", server)
 
-        """
-        This try-except block catches when the ping call doesn't give a response (the connection drops)
-        In that case it returns 0 
-        Again, there's a better way to do this (catch when the exit status is non-zero instead of a try-except)
-        """
+        # This block will get the full response of the call to the ping command as a byte string
+        # The try-except block catches when the ping call doesn't give a response (the connection drops)
+        # In that case it returns 0
+        # Again, there's a better way to do this (catch when the exit status is non-zero instead of a try-except)
+
         try:
             pingresponse = subprocess.check_output(command, shell=True)
         except subprocess.CalledProcessError:
             return 0
 
+        # The entire byte string is then split into its individual words
         pinglist = pingresponse.split(b'\n')
 
         for line in pinglist:
@@ -40,16 +41,14 @@ class Ping:
 
             # Allows us to only care about lines that have the actual ping value
             if "time=" in line:
-                # FUCK YES
-                """
-                Spilt the line by the "time=" and "ms". 
-                This gives us a list where the second index is the ping value itself
-                I'm sure there's a better way to do it though
-                """
+                # Spilt the line by the "time=" and "ms".
+                # This gives us a list where the second index is the ping value itself
+                # I'm sure there's a better way to do it though
                 pingline = re.split(r'time=|ms', line)
-                pingvalue = float(pingline[1])
+                pingvalue = float(pingline[1]) # Converted to a float rather than an int for the Bash command
                 
         return pingvalue
+
 
 def main():
     ping = Ping()

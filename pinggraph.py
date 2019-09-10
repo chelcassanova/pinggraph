@@ -51,8 +51,9 @@ def main():
 
     # All it took was putting a comma after 'osint' in fargs >:(
     # TODO: Make the "what server do you want to ping" a GUI thing
+    # TODO: Create a .exe from this
     pingserver = input("what is want")
-    ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=200)
+    ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=150)
     plt.show()
 
 

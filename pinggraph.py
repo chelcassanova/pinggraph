@@ -32,7 +32,7 @@ def animate(i, ostype, server):  # I don't know why, but the func def needs an a
         plt.cla()
         pingarray.pop(0)
         if pingresponse == 0:
-            plt.plot(pingarray, 'r')  # Plot the current array
+            plt.plot(pingarray, 'r')  # Plot the current array (in red)
         else:
             plt.plot(pingarray, 'b')  # Plot the current array
 

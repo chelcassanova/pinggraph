@@ -11,3 +11,7 @@ into this:
 
 [pingterm]: images/pingterm.png "The ping command running in Windows Powershell"
 [pinggraph]: images/pinggraph.png "The Ping Graph program running"
+
+This program is run via command-line by typing `python3 pinggraph.py`. The user is then prompted to enter a web address or IP address to ping.
+
+This program works on Windows and Linux-based OSes such as Ubuntu.

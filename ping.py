@@ -17,7 +17,7 @@ class Ping:
         # Gathering ping data
         # If ostype is 0, then it's the Windows version of the command
         # If ostype is 1, then it uses the Bash command
-        # DONE: Find a way to get the user to request which server to ping (default is google.com)
+        # TODO: Threading might make this part run better
         if ostype == 0:
             command = str.format("ping -n 1 {}", server)
         else:
@@ -45,7 +45,7 @@ class Ping:
                 # This gives us a list where the second index is the ping value itself
                 # I'm sure there's a better way to do it though
                 pingline = re.split(r'time=|ms', line)
-                pingvalue = float(pingline[1]) # Converted to a float rather than an int for the Bash command
+                pingvalue = float(pingline[1])  # Converted to a float rather than an int for the Bash command
                 
         return pingvalue
 

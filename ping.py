@@ -1,6 +1,7 @@
 import subprocess
 import re
 import sys
+import threading
 
 class Ping:
     """A class that will get the response from the ping call"""
@@ -17,7 +18,7 @@ class Ping:
         # Gathering ping data
         # If ostype is 0, then it's the Windows version of the command
         # If ostype is 1, then it uses the Bash command
-        # TODO: Threading might make this part run better
+        # TODO: Threading might make this part run better (as in, not stall whenever the connection is bad)
         if ostype == 0:
             command = str.format("ping -n 1 {}", server)
         else:

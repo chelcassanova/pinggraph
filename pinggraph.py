@@ -37,7 +37,7 @@ def animate(i, ostype, server):  # I don't know why, but the func def needs an a
             plt.plot(pingarray, 'b')  # Plot the current array
 
     # Update the y-axis label with the current ping value
-    ax.set_xlabel('Time?')
+    ax.set_xlabel('Time')
     ax.set_ylabel(str.format('Response Time (ms): {}', pingresponse))
     fig.suptitle(str.format('Pinging {}', server))
 
@@ -52,9 +52,10 @@ def main():
     # All it took was putting a comma after 'osint' in fargs >:(
     # TODO: Make the "what server do you want to ping" a GUI thing
     # TODO: Create a .exe from this
-    pingserver = input("what is want")
+    pingserver = input("Type a web address or an IP address to ping")
     ani = animation.FuncAnimation(fig, animate, 25, fargs=(osint, pingserver), interval=150)
     plt.show()
+
 
 
 if __name__ == '__main__':

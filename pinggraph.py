@@ -7,6 +7,8 @@ ping = Ping()
 
 fig = plt.figure()  # Create the main figure of the graph
 fig.suptitle('Ping Response Graph')  # Give it a main title
+fig.canvas.toolbar.pack_forget()  # Remove toolbar
+fig.canvas.set_window_title('Ping Graph')
 
 
 ax = plt.subplot()  # Create an Axes object for the figure

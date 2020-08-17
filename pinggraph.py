@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import sys
 import tkinter
+from functools import partial
 from ping import Ping
 
 
@@ -40,23 +41,31 @@ def animate(i, ostype, server):  # NOTE: I don't know why, but the func def need
     ax.set_ylabel(str.format('Response Time (ms): {}', pingresponse))
     fig.suptitle(str.format('Pinging {}', server))
 
-
+def buttontest(s):
+    print(s)
 def serverwindow():
     """
     A graphical window that can be used to enter the server to ping instead of using the command line
     :return: The server that the user want to ping
     """
+
+    # The main window
     window = tkinter.Tk()
     window.geometry("300x150")
     messagelabel = tkinter.Label(window, text="Please enter the server you want to ping")
     messagelabel.pack()
 
+    # The entry text box
     entrystring = "google.com"
-    serverentry = tkinter.Entry(window, text="pls")
+    entryvar = tkinter.StringVar()
+    serverentry = tkinter.Entry(window)
     serverentry.pack()
     serverentry.insert(0, entrystring)
+
+    #entryvar.set("some words")
+    s = entryvar.get()
  
-    boton = tkinter.Button(window, text="does nothing")
+    boton = tkinter.Button(window, text="does nothing", command=partial(buttontest, serverentry.get()))
     boton.pack()
 
     """
